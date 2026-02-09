@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:car_rental_app/presentation/widgets/car_rental_button.dart';
+
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 
@@ -52,36 +54,9 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 54,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ).copyWith(
-                        backgroundBuilder: (context, states, child) {
-                          return Container(
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Color(0xFF434343), Color(0xFF000000)],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                              ),
-                            ),
-                            child: child,
-                          );
-                        },
-                      ),
-                      child: const Text(
-                        "Let's Fuckin Go",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                  child: CarRentalButton(
+                    onPressed: () {},
+                    text: "Let's Go",
                   ),
                 ),
               ],
