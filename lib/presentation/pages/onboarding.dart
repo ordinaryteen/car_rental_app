@@ -36,15 +36,14 @@ class OnboardingScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Premium cars. \nEnjoy the luxury',
+                        'Your Premium cars',
                         style: TextStyle(
                             color: Colors.black54,
                             fontSize: 32,
                             fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 10),
                       const Text(
-                        'Premium and prestige car daily rental. \nExperience the thrill at a lower price',
+                        'Experience the thrill at a lower price',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
@@ -64,7 +63,7 @@ class OnboardingScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    text: "Let's Go",
+                    text: "Let's Fuckin Go",
                   ),
                 ),
               ],

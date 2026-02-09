@@ -9,19 +9,21 @@ class CarCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        // Navigate to details page later
+      },
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
+          color: const Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: const [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+              color: Colors.black12,
               blurRadius: 10,
-              offset: const Offset(0, 5),
-            ),
+              spreadRadius: 5,
+            )
           ],
         ),
         child: Column(
@@ -30,38 +32,37 @@ class CarCard extends StatelessWidget {
               'assets/car_image.png',
               height: 120,
             ),
-            const SizedBox(height: 10),
             Text(
               car.model,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             const SizedBox(height: 10),
-            Text(
-              '${car.distance} km',
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              '${car.fuelCapacity} L',
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              '${car.pricePerHour} ₽/hour',
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('assets/gps.png'),
+                        Text(' ${car.distance.toStringAsFixed(0)}km')
+                      ],
+                    ),
+                    const SizedBox(width: 10), // Added spacing
+                    Row(
+                      children: [
+                        Image.asset('assets/pump.png'),
+                        Text(' ${car.fuelCapacity.toStringAsFixed(0)}L')
+                      ],
+                    ),
+                  ],
+                ),
+                Text(
+                  '\$${car.pricePerHour.toStringAsFixed(2)}/h',
+                  style: const TextStyle(fontSize: 16),
+                )
+              ],
+            )
           ],
         ),
       ),
