@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1003756518346",
+    "project_id": "rentapp-nafi",
+    "storage_bucket": "rentapp-nafi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003756518346:android:493383261d2383fcdaad33",
+        "android_client_info": {
+          "package_name": "com.car_rental.car_rental_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ6EF5FyGbT26LmuooEAYrzLRa-TvF-3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
