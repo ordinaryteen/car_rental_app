@@ -1,3 +1,4 @@
+import 'package:car_rental_app/presentation/pages/car_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:car_rental_app/presentation/widgets/car_rental_button.dart';
@@ -55,7 +56,14 @@ class OnboardingScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: CarRentalButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CarListScreen(),
+                        ),
+                      );
+                    },
                     text: "Let's Go",
                   ),
                 ),
