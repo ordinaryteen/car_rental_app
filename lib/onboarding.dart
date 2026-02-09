@@ -8,10 +8,85 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Image.asset('assets/onboarding.png'),
-          Text('Welcome to Car Rental App'),
-          Text('Book your dream car in minutes'),
-          ElevatedButton(onPressed: () {}, child: Text('Get Started')),
+          // image section
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/onboarding.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          // description section
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Premium cars. \nEnjoy the luxury',
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Premium and prestige car daily rental. \nExperience the thrill at a lower price',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 54,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ).copyWith(
+                        backgroundBuilder: (context, states, child) {
+                          return Container(
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [Color(0xFF434343), Color(0xFF000000)],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                            ),
+                            child: child,
+                          );
+                        },
+                      ),
+                      child: const Text(
+                        "Let's Fuckin Go",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
