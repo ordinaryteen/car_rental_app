@@ -8,6 +8,7 @@ class Car {
   final String? ownerImage;
   final double? latitude;
   final double? longitude;
+  final List<dynamic>? variants;
 
   Car({
     required this.model,
@@ -18,6 +19,7 @@ class Car {
     this.ownerImage,
     this.latitude,
     this.longitude,
+    this.variants,
   });
 
   factory Car.fromMap(Map<String, dynamic> map) {
@@ -33,6 +35,7 @@ class Car {
       longitude: map['longitude'] != null
           ? (map['longitude'] as num).toDouble()
           : null,
+      variants: map['variants'],
     );
   }
 }
