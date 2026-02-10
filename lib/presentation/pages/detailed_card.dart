@@ -175,7 +175,7 @@ class CarDetailScreen extends StatelessWidget {
 
           // Part 3: More Cars
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
             child: Column(
               children: [
                 MoreCard(
@@ -184,14 +184,14 @@ class CarDetailScreen extends StatelessWidget {
                         distance: car.distance + 100,
                         fuelCapacity: car.fuelCapacity + 100,
                         pricePerHour: car.pricePerHour + 10)),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 MoreCard(
                     car: Car(
                         model: "${car.model}-2",
                         distance: car.distance + 200,
                         fuelCapacity: car.fuelCapacity + 200,
                         pricePerHour: car.pricePerHour + 20)),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 MoreCard(
                     car: Car(
                         model: "${car.model}-3",
