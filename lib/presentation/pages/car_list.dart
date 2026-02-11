@@ -7,6 +7,7 @@ class CarListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           'Choose Your Car',
@@ -28,12 +29,15 @@ class CarListScreen extends StatelessWidget {
 
           var docs = snapshot.data!.docs;
 
-          return ListView.builder(
-            itemCount: docs.length,
-            itemBuilder: (context, index) {
-              Map<String, dynamic> data = docs[index].data();
-              return CarCard(car: Car.fromMap(data));
-            },
+          return Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: ListView.builder(
+              itemCount: docs.length,
+              itemBuilder: (context, index) {
+                Map<String, dynamic> data = docs[index].data();
+                return CarCard(car: Car.fromMap(data));
+              },
+            ),
           );
         },
       ),

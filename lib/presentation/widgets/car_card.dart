@@ -27,8 +27,9 @@ class CarCard extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,
-              blurRadius: 10,
-              spreadRadius: 5,
+              blurRadius: 8,
+              spreadRadius: 3,
+              offset: Offset(0, 5),
             )
           ],
         ),
