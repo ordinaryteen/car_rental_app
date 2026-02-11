@@ -24,7 +24,7 @@ class MapDetailsPage extends StatelessWidget {
           FlutterMap(
             options: MapOptions(
               initialCenter:
-                  LatLng(car.latitude ?? 51.5, car.longitude ?? -0.09),
+                  LatLng(car.latitude ?? -7.91176, car.longitude ?? 112.59956),
               initialZoom: 13,
             ),
             children: [
@@ -50,11 +50,11 @@ class MapDetailsPage extends StatelessWidget {
 
 Widget carDetailsCard({required Car car}) {
   return SizedBox(
-    height: 350,
+    height: 330,
     child: Stack(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
           width: double.infinity,
           decoration: const BoxDecoration(
             color: Colors.black54,
@@ -77,7 +77,6 @@ Widget carDetailsCard({required Car car}) {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              const SizedBox(height: 10),
               Row(
                 children: [
                   const Icon(Icons.directions_car,
@@ -118,33 +117,16 @@ Widget carDetailsCard({required Car car}) {
                   "Features",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 featureIcons(),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '\$${car.pricePerHour}/day',
-                      style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                      ),
-                      child: const Text('Book Now',
-                          style: TextStyle(color: Colors.white)),
-                    )
-                  ],
-                ),
+                const SizedBox(height: 10),
+                _buildPriceAndBookButton(car),
               ],
             ),
           ),
         ),
         Positioned(
-          top: 50,
+          top: 30,
           right: 20,
           child: Image.asset(
             'assets/white_car.png',
@@ -153,6 +135,25 @@ Widget carDetailsCard({required Car car}) {
         )
       ],
     ),
+  );
+}
+
+Widget _buildPriceAndBookButton(Car car) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        '\$${car.pricePerHour}/day',
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      ),
+      ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black,
+        ),
+        child: const Text('Book Now', style: TextStyle(color: Colors.white)),
+      )
+    ],
   );
 }
 

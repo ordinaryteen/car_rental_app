@@ -2,8 +2,6 @@ import 'package:car_rental_app/presentation/pages/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:car_rental_app/presentation/pages/map_detail.dart';
-import 'package:car_rental_app/data/models/car.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
