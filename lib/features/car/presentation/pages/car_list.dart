@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:car_rental_app/data/models/car.dart';
-import 'package:car_rental_app/presentation/widgets/car_card.dart';
+import 'package:car_rental_app/features/car/domain/entities/car.dart';
+import 'package:car_rental_app/features/car/presentation/widgets/car_card.dart';
 
 class CarListScreen extends StatelessWidget {
   @override

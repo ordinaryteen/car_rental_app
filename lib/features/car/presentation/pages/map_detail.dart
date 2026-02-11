@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:car_rental_app/data/models/car.dart';
+import 'package:car_rental_app/features/car/domain/entities/car.dart';
 
 class MapDetailsPage extends StatelessWidget {
   final Car car;
