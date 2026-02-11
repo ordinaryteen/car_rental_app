@@ -1,7 +1,6 @@
 import 'package:car_rental_app/presentation/pages/car_list.dart';
 import 'package:flutter/material.dart';
-
-import 'package:car_rental_app/presentation/widgets/car_rental_button.dart';
+import 'package:car_rental_app/presentation/widgets/_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
