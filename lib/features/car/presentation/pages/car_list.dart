@@ -1,6 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:car_rental_app/features/car/data/models/car_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:car_rental_app/features/car/presentation/bloc/car_bloc.dart';
+import 'package:car_rental_app/features/car/presentation/bloc/car_state.dart';
 import 'package:car_rental_app/features/car/presentation/widgets/car_card.dart';
 
 class CarListScreen extends StatelessWidget {
@@ -16,32 +17,32 @@ class CarListScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: const Color.fromARGB(255, 53, 53, 53),
       ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('cars').snapshots(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
+      body: BlocBuilder<CarBloc, CarState>(
+        builder: (context, state) {
+          if (state is CarsLoading) {
             return Center(child: CircularProgressIndicator());
           }
 
-          if (snapshot.hasError) {
-            return Center(child: Text('Error loading cars'));
+          if (state is CarsLoaded) {
+            return Padding(
+              padding: const EdgeInsets.only(top: 15),
+              child: ListView.builder(
+                itemCount: state.cars.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: CarCard(car: state.cars[index]),
+                  );
+                },
+              ),
+            );
           }
 
-          var docs = snapshot.data!.docs;
+          if (state is CarsError) {
+            return Center(child: Text('Error: ${state.message}'));
+          }
 
-          return Padding(
-            padding: const EdgeInsets.only(top: 15),
-            child: ListView.builder(
-              itemCount: docs.length,
-              itemBuilder: (context, index) {
-                Map<String, dynamic> data = docs[index].data();
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: CarCard(car: CarModel.fromMap(data)),
-                );
-              },
-            ),
-          );
+          return Container(); // Fallback for initial state
         },
       ),
     );
