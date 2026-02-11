@@ -2,9 +2,6 @@ import 'package:car_rental_app/presentation/pages/car_list.dart';
 import 'package:flutter/material.dart';
 import 'package:car_rental_app/presentation/widgets/_button.dart';
 
-import 'package:car_rental_app/presentation/pages/map_detail.dart';
-import 'package:car_rental_app/data/models/car.dart';
-
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
 
@@ -61,16 +58,7 @@ class OnboardingScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          // builder: (context) => CarListScreen(),
-
-                          builder: (context) => MapDetailsPage(
-                            car: Car(
-                              model: 'Test Car',
-                              distance: 100,
-                              fuelCapacity: 50,
-                              pricePerHour: 20,
-                            ),
-                          ),
+                          builder: (context) => CarListScreen(),
                         ),
                       );
                     },

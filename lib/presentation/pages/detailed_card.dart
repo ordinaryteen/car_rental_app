@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:car_rental_app/data/models/car.dart';
 import 'package:car_rental_app/presentation/widgets/more_card.dart';
+import 'package:car_rental_app/presentation/pages/map_detail.dart';
 
 class CarDetailScreen extends StatelessWidget {
   final Car car;
@@ -148,24 +149,37 @@ class CarDetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 20),
                   Expanded(
-                    child: Container(
-                      height: 170,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffF3F3F3),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          )
-                        ],
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          'assets/maps.png',
-                          fit: BoxFit.cover,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MapDetailsPage(car: car),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 170,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffF3F3F3),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Transform.scale(
+                            scale: 1.2,
+                            child: Image.asset(
+                              'assets/maps.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       ),
                     ),
