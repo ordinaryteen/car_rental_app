@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:car_rental_app/features/car/domain/entities/car.dart';
+import 'package:car_rental_app/features/car/data/models/car_model.dart';
 import 'package:car_rental_app/features/car/presentation/widgets/car_card.dart';
 
 class CarListScreen extends StatelessWidget {
@@ -35,7 +35,10 @@ class CarListScreen extends StatelessWidget {
               itemCount: docs.length,
               itemBuilder: (context, index) {
                 Map<String, dynamic> data = docs[index].data();
-                return CarCard(car: Car.fromMap(data));
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: CarCard(car: CarModel.fromMap(data)),
+                );
               },
             ),
           );

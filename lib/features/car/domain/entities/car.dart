@@ -21,21 +21,4 @@ class Car {
     this.longitude,
     this.variants,
   });
-
-  factory Car.fromMap(Map<String, dynamic> map) {
-    return Car(
-      model: map['model'],
-      distance: (map['distance'] as num).toDouble(),
-      fuelCapacity: (map['fuelCapacity'] as num).toDouble(),
-      pricePerHour: (map['pricePerHour'] as num).toDouble(),
-      ownerName: map['ownerName'],
-      ownerImage: map['ownerImage'],
-      latitude:
-          map['latitude'] != null ? (map['latitude'] as num).toDouble() : null,
-      longitude: map['longitude'] != null
-          ? (map['longitude'] as num).toDouble()
-          : null,
-      variants: map['variants'],
-    );
-  }
 }
